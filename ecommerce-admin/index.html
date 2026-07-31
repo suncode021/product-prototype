@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>电商购物平台管理后台</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    html, body {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    #root {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      height: 100%;
+      min-height: 100vh;
+      overflow: visible;
+    }
+    body.is-element-page #root {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+  <style>
+:root{--commerce-bg: oklch(1 0 0);--commerce-panel: oklch(.985 .006 279);--commerce-panel-strong: oklch(.955 .014 279);--commerce-ink: oklch(.18 .022 270);--commerce-muted: oklch(.43 .025 270);--commerce-line: oklch(.88 .018 275);--commerce-primary: oklch(.445 .206 279.1);--commerce-primary-dark: oklch(.36 .18 279.1);--commerce-blue: oklch(.56 .18 245);--commerce-green: oklch(.56 .16 152);--commerce-amber: oklch(.68 .16 70);--commerce-red: oklch(.56 .18 24);--commerce-shadow: 0 8px 24px oklch(.18 .022 270 / .08);color:var(--commerce-ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--commerce-bg)}button,input{font:inherit}button{cursor:pointer}.commerce-admin-shell{min-height:100vh;display:grid;grid-template-columns:264px minmax(0,1fr);background:linear-gradient(180deg,oklch(.98 .012 279),var(--commerce-bg) 34%),var(--commerce-bg)}.commerce-sidebar{position:sticky;top:0;height:100vh;padding:22px 18px;background:#f1f3ff;border-right:1px solid var(--commerce-line);display:flex;flex-direction:column;gap:24px}.brand-lockup{display:flex;align-items:center;gap:12px;min-height:44px}.brand-lockup strong,.brand-lockup span{display:block}.brand-lockup strong{font-size:15px}.brand-lockup span,.sidebar-panel p,.metric-card p,.metric-card span,.section-label,.risk-item span,.product-row span,.quick-action small,.breadcrumb{color:var(--commerce-muted)}.brand-mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:#fff;background:var(--commerce-primary)}.side-nav{display:grid;gap:6px}.side-nav button{border:0;border-radius:10px;background:transparent;color:var(--commerce-muted);display:flex;align-items:center;gap:10px;min-height:42px;padding:0 12px;transition:background .16s ease,color .16s ease}.side-nav button:hover,.side-nav button:focus-visible{background:#e3e6fb;color:var(--commerce-ink);outline:none}.side-nav button.active{background:var(--commerce-primary);color:#fff}.sidebar-panel{margin-top:auto;padding:16px;border-radius:14px;background:#fff;border:1px solid var(--commerce-line)}.sidebar-panel strong{display:block;margin:8px 0 4px;font-size:30px}.sidebar-panel p{margin:0;line-height:1.45}.commerce-workspace{min-width:0;padding:24px;display:grid;gap:18px}.topbar{display:flex;justify-content:space-between;gap:20px;align-items:center}.topbar h1,.panel-header h2,.command-band h2,.campaign-panel h2{margin:4px 0 0;text-wrap:balance}.topbar h1{font-size:26px;line-height:1.2}.topbar-actions{display:flex;align-items:center;gap:10px}.search-box{min-width:320px;height:42px;border:1px solid var(--commerce-line);border-radius:12px;background:#fff;display:flex;align-items:center;gap:9px;padding:0 12px}.search-box input{width:100%;border:0;outline:0;color:var(--commerce-ink)}.search-box input::placeholder{color:#585d6c}.icon-button{position:relative;width:42px;height:42px;border:1px solid var(--commerce-line);border-radius:12px;background:#fff;color:var(--commerce-ink);display:grid;place-items:center}.notification-dot{position:absolute;top:9px;right:10px;width:8px;height:8px;border-radius:99px;background:var(--commerce-red);border:2px solid white}.summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.metric-card,.orders-panel,.risk-panel,.campaign-panel,.inventory-panel,.command-band,.quick-action{border:1px solid var(--commerce-line);border-radius:14px;background:#fff}.metric-card{padding:16px;display:grid;gap:7px}.metric-card strong{font-size:25px;line-height:1.1}.metric-card p{margin:0}.metric-icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:#fff}.metric-card.violet .metric-icon{background:var(--commerce-primary)}.metric-card.blue .metric-icon{background:var(--commerce-blue)}.metric-card.green .metric-icon{background:var(--commerce-green)}.metric-card.amber .metric-icon{background:var(--commerce-amber)}.command-band{padding:18px;display:grid;grid-template-columns:minmax(240px,.8fr) minmax(320px,1.2fr);gap:16px;align-items:center;background:var(--commerce-panel)}.section-label{display:block;font-size:12px;font-weight:700}.task-stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.task-pill{border:1px solid var(--commerce-line);border-radius:12px;min-height:72px;background:#fff;color:var(--commerce-ink);padding:12px;display:flex;justify-content:space-between;align-items:flex-start;text-align:left}.task-pill strong{font-size:22px}.task-pill.selected{border-color:var(--commerce-primary);box-shadow:0 0 0 3px #4535c121}.task-pill.danger strong{color:var(--commerce-red)}.task-pill.warning strong{color:var(--commerce-amber)}.task-pill.info strong{color:var(--commerce-blue)}.content-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px}.orders-panel,.inventory-panel,.risk-panel,.campaign-panel{padding:18px}.panel-header{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.panel-header.compact{align-items:center}.segmented-control{display:flex;gap:4px;padding:4px;border-radius:12px;background:var(--commerce-panel-strong)}.segmented-control button{min-height:32px;border:0;border-radius:9px;padding:0 10px;background:transparent;color:var(--commerce-muted)}.segmented-control button.selected{color:var(--commerce-ink);background:#fff}.table-toolbar{margin:18px 0 12px;display:flex;justify-content:space-between;gap:10px}.primary-button,.secondary-button{min-height:38px;border-radius:10px;padding:0 13px;display:inline-flex;align-items:center;gap:8px}.primary-button{border:1px solid var(--commerce-primary);background:var(--commerce-primary);color:#fff}.secondary-button{border:1px solid var(--commerce-line);background:#fff;color:var(--commerce-ink)}.orders-table{overflow:hidden;border:1px solid var(--commerce-line);border-radius:12px}.table-row{display:grid;grid-template-columns:1.35fr .8fr .7fr .7fr .7fr .8fr;gap:12px;align-items:center;min-height:54px;padding:0 14px;border-top:1px solid var(--commerce-line)}.table-row:first-child{border-top:0}.table-head{min-height:42px;background:var(--commerce-panel);color:var(--commerce-muted);font-size:13px;font-weight:700}.mono{font-family:SFMono-Regular,Consolas,monospace;font-size:13px}.status{justify-self:start;min-width:62px;border-radius:999px;padding:4px 9px;color:#fff;text-align:center;font-size:12px;font-weight:700}.status.danger{background:var(--commerce-red)}.status.warning{background:var(--commerce-amber)}.status.info{background:var(--commerce-blue)}.right-rail{display:grid;gap:18px}.risk-panel{display:grid;gap:12px}.risk-item{display:flex;justify-content:space-between;gap:12px;padding:12px;border-radius:12px;background:var(--commerce-panel)}.risk-item strong,.risk-item span{display:block}.risk-item b{white-space:nowrap}.campaign-panel{background:var(--commerce-primary-dark);color:#fff}.campaign-panel .section-label{color:#d2d6ef}.progress-track{margin:18px 0 12px;height:10px;border-radius:99px;background:#ffffff2e;overflow:hidden}.progress-track span{display:block;height:100%;border-radius:inherit;background:#55d180}.campaign-stats{display:flex;align-items:center;justify-content:space-between}.inventory-panel{display:grid;gap:14px}.product-list{display:grid;gap:10px}.product-row{display:grid;grid-template-columns:46px minmax(180px,1fr) minmax(160px,.8fr) 110px;gap:12px;align-items:center;padding:12px;border-radius:12px;background:var(--commerce-panel)}.product-row strong,.product-row span{display:block}.product-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:#fff;background:var(--commerce-green)}.product-icon.low{background:var(--commerce-amber)}.stock-meter{height:9px;border-radius:99px;background:#daddea;overflow:hidden}.stock-meter span{display:block;height:100%;background:var(--commerce-primary)}.product-meta{text-align:right}.ops-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.quick-action{min-height:76px;padding:14px;display:grid;grid-template-columns:24px minmax(0,1fr) 18px;gap:12px;align-items:center;color:var(--commerce-ink);text-align:left}.quick-action strong,.quick-action small{display:block}button:hover{filter:brightness(.98)}button:focus-visible,input:focus-visible{outline:3px solid oklch(.445 .206 279.1 / .22);outline-offset:2px}@media (max-width: 1180px){.commerce-admin-shell{grid-template-columns:88px minmax(0,1fr)}.brand-lockup div:not(.brand-mark),.side-nav span,.sidebar-panel{display:none}.commerce-sidebar{align-items:center;padding-inline:12px}.side-nav button{width:48px;justify-content:center;padding:0}.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-grid{grid-template-columns:1fr}}@media (max-width: 760px){.commerce-admin-shell{display:block}.commerce-sidebar{position:static;height:auto;flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--commerce-line)}.brand-lockup{min-width:42px}.side-nav{display:flex;min-width:max-content}.commerce-workspace{padding:16px}.topbar,.panel-header,.command-band{display:grid}.topbar-actions,.task-stack,.ops-strip,.summary-grid{grid-template-columns:1fr;display:grid}.topbar-actions{grid-template-columns:minmax(0,1fr) 42px 42px;align-items:center}.search-box{min-width:0}.segmented-control{overflow-x:auto}.table-row,.table-head{grid-template-columns:1fr;gap:6px;padding:12px;min-height:auto}.table-head{display:none}.product-row{grid-template-columns:42px minmax(0,1fr)}.stock-meter,.product-meta{grid-column:1 / -1;text-align:left}}@media (prefers-reduced-motion: reduce){*,*:before,*:after{transition-duration:1ms!important;animation-duration:1ms!important}}
+
+  </style>
+</head>
+<body>
+
+  <script>
+    (function () {
+      var isComponent = false;
+      if (document.body && (isComponent || window.location.pathname.includes('/components/'))) {
+        document.body.classList.add('is-element-page');
+      }
+    })();
+  </script>
+
+  <div id="root"></div>
+
+  
+  <script src="./assets/react.production.min.js"></script>
+  <script src="./assets/react-dom.production.min.js"></script>
+  <script src="./assets/export-html-bootstrap.js"></script>
+
+  <script>
+    function waitForBootstrap(timeoutMs) {
+      timeoutMs = timeoutMs || 10000;
+      return new Promise(function (resolve, reject) {
+        var startedAt = Date.now();
+        function check() {
+          if (window.HtmlTemplateBootstrap) {
+            resolve(window.HtmlTemplateBootstrap);
+            return;
+          }
+          if (Date.now() - startedAt >= timeoutMs) {
+            reject(new Error('[Html Template] Bootstrap 初始化超时'));
+            return;
+          }
+          setTimeout(check, 10);
+        }
+        check();
+      });
+    }
+
+    function loadEntryScript(src) {
+      return new Promise(function (resolve, reject) {
+        var script = document.createElement('script');
+        script.src = src;
+        script.async = false;
+        script.onload = function () { resolve(); };
+        script.onerror = function () { reject(new Error('[Html Template] 入口脚本加载失败: ' + src)); };
+        document.body.appendChild(script);
+      });
+    }
+
+    async function bootstrapAndRender() {
+      try {
+        var bootstrap = await waitForBootstrap();
+        var renderComponent = bootstrap.renderComponent;
+        window.React = bootstrap.React;
+        window.ReactDOM = bootstrap.ReactDOM;
+
+        await loadEntryScript('./index.js');
+        
+
+        var Component = window.UserComponent && (window.UserComponent.Component || window.UserComponent.default || window.UserComponent);
+        if (!Component) {
+          throw new Error('[Html Template] 入口脚本未暴露 UserComponent');
+        }
+
+        renderComponent(Component);
+      } catch (error) {
+        console.error('[Html Template] 页面初始化失败:', error);
+      }
+    }
+
+    bootstrapAndRender();
+  </script>
+
+</body>
+</html>
